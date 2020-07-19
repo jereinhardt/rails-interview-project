@@ -2,10 +2,15 @@
 
 one:
   body: MyString
-  question_id: 1
-  answerer: 1
+  question: one
+  answerer: two
 
 two:
   body: MyString
-  question_id: 1
-  answerer: 1
+  question: two
+  answerer: one
+
+private:
+  body: Private answer
+  question: private
+  answerer: two

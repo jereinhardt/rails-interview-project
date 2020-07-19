@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  api_key: MyString
+  api_key: <%= SecureRandom.hex(16) %>
 
 two:
   name: MyString
-  api_key: MyString
+  api_key: <%= SecureRandom.hex(16) %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512220935) do
+ActiveRecord::Schema.define(version: 20200719181350) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "body",        null: false
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20160512220935) do
     t.integer  "user_id",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "api_requests", force: :cascade do |t|
+    t.integer  "tenant_id"
+    t.string   "endpoint"
+    t.string   "method"
+    t.string   "params"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "questions", force: :cascade do |t|

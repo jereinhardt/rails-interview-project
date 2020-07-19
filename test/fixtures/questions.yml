@@ -1,11 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
+  title: Question 1
   private: false
-  asker_id: 1
+  asker: one
 
 two:
-  title: MyString
+  title: Question 2
   private: false
-  asker_id: 1
+  asker: two
+
+private:
+  title: Private Question
+  private: true
+  asker: one
