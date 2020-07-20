@@ -40,6 +40,35 @@ class API::QuestionsControllerTest < ActionController::TestCase
     end
   end
 
+  test "should return results that match a search when provided" do
+    tenant = tenants(:one)
+    title = "Question 1"
+    questions = Question.where(title: title)
+    serialized_questions = ActiveModelSerializers::SerializableResource.new(
+      questions,
+      include: "answers.answerer"
+    )
+
+    get :index,
+      api_key: tenant.api_key,
+      format: :json,
+      q: { title_matches: title }
+
+    assert_equal @response.body, json_success_response(serialized_questions)
+  end
+
+  test "should return the proper result when no search results are found" do
+    tenant = tenants(:one)
+
+    get :index,
+      api_key: tenant.api_key,
+      format: :json,
+      q: { title_matches: "No questions should match this title" }
+
+    assert_response :no_content
+    assert_equal @response.body, { data: [], errors: [] }.to_json
+  end
+
   private
 
   def json_success_response(data)

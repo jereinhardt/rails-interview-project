@@ -6,15 +6,19 @@ class APIController < ApplicationController
     @current_tenant ||= Tenant.find_by(api_key: params[:api_key])
   end
 
-  def render_json(data)
-    render json: { data: data, errors: [] }
+  def render_json(data:, status: :ok)
+    render json: { data: data, errors: [] }, status: status
+  end
+
+  def render_error(message:, status:)
+    render json: { data: {}, errors: [message] }, status: status
   end
 
   private
 
   def authenticate_request
     unless current_tenant.present?
-      render json: { data: {}, errors: ["Unauthorized"] }, status: :unauthorized
+      render_error(message: "Unauthorized", status: :unauthorized)
     end
   end
 
