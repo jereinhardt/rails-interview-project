@@ -1,0 +1,43 @@
+<div class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">Analytics Dashboard</h1>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="container">
+    <div class="columns">
+
+      <div class="column is-one-fourth-desktop">
+        <article class="tile is-vertical card notification">
+          <h3 class="subtitle">Total Users</h3>
+          <div class="title"><%= @dashboard.users_count %></div>
+        </article>
+      </div>
+
+      <div class="column is-one-fourth-desktop">
+        <article class="tile is-vertical card notification">
+          <h3 class="subtitle">Total Questions</h3>
+          <div class="title"><%= @dashboard.questions_count %></div>
+        </article>
+      </div>
+
+      <div class="column is-one-fourth-desktop">
+        <article class="tile is-vertical card notification">
+          <h3 class="subtitle">Total Answers</h3>
+          <div class="title"><%= @dashboard.answers_count %></div>
+        </article>
+      </div>
+
+      <div class="column is-one-fourth-desktop">
+        <article class="tile is-vertical card notification">
+          <h3 class="subtitle">Total API Requests</h3>
+          <div class="title"><%= @dashboard.api_requests_count %></div>
+        </article>
+      </div>
+
+    </div>
+  </div>
+</div>

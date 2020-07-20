@@ -25,5 +25,6 @@ module RailsInterviewProject
 
     config.autoload_paths << Rails.root.join("app/services")
     config.autoload_paths << Rails.root.join("app/serializers")
+    config.autoload_paths << Rails.root.join("app/presenters")
   end
 end
