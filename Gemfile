@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem "bulma-rails", "~> 0.9.0"
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'rack-throttle'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

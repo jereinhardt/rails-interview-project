@@ -1,6 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require_relative '../lib/api_limiter'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -26,5 +27,10 @@ module RailsInterviewProject
     config.autoload_paths << Rails.root.join("app/services")
     config.autoload_paths << Rails.root.join("app/serializers")
     config.autoload_paths << Rails.root.join("app/presenters")
+
+    config.middleware.use APILimiter,
+        code: 429,
+        type: "application/json",
+        message: { data: {}, errors: ["Rate limit exceeded"] }.to_json
   end
 end
